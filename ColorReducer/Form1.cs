@@ -6,5 +6,10 @@ namespace ColorReducer
         {
             InitializeComponent();
         }
+
+        private void colorsAmountTrackBar_Scroll(object sender, EventArgs e)
+        {
+            clusterImageButton.Text = $"Cluster image to {colorsAmountTrackBar.Value} colors";
+        }
     }
 }
