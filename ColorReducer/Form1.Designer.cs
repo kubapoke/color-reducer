@@ -143,6 +143,7 @@
             loadImageButton.TabIndex = 1;
             loadImageButton.Text = "Load image";
             loadImageButton.UseVisualStyleBackColor = true;
+            loadImageButton.Click += loadImageButton_Click;
             // 
             // saveImageButton
             // 
