@@ -23,7 +23,7 @@
             {
                 for (int y = offsetY; y < Image.Height - offsetY - 1; y++)
                 {
-                    Image.SetPixel(x, y, bitmap.GetPixel((int)Math.Floor((x - offsetX) / scale), (int)Math.Floor((y - offsetY) / scale)));
+                    Image.SetPixel(x, y, bitmap.GetPixel((int)((x - offsetX) / scale), (int)((y - offsetY) / scale)));
                 }
             }
         }

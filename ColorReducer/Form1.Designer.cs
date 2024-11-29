@@ -106,6 +106,7 @@
             // 
             // clusterImageButton
             // 
+            clusterImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             clusterImageButton.Location = new Point(570, 309);
             clusterImageButton.Name = "clusterImageButton";
             clusterImageButton.Size = new Size(169, 28);
@@ -126,6 +127,7 @@
             // 
             // colorsAmountTrackBar
             // 
+            colorsAmountTrackBar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             colorsAmountTrackBar.Location = new Point(236, 298);
             colorsAmountTrackBar.Maximum = 256;
             colorsAmountTrackBar.Minimum = 2;
@@ -138,6 +140,7 @@
             // 
             // loadImageButton
             // 
+            loadImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             loadImageButton.Location = new Point(12, 309);
             loadImageButton.Name = "loadImageButton";
             loadImageButton.Size = new Size(101, 28);
@@ -148,6 +151,7 @@
             // 
             // saveImageButton
             // 
+            saveImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             saveImageButton.Location = new Point(129, 309);
             saveImageButton.Name = "saveImageButton";
             saveImageButton.Size = new Size(101, 28);
@@ -177,6 +181,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.Location = new Point(12, 10);
@@ -187,6 +192,7 @@
             // 
             // propagationOfUncertaintyPictureBox
             // 
+            propagationOfUncertaintyPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             propagationOfUncertaintyPictureBox.Location = new Point(12, 47);
             propagationOfUncertaintyPictureBox.Name = "propagationOfUncertaintyPictureBox";
             propagationOfUncertaintyPictureBox.Size = new Size(352, 239);
@@ -216,6 +222,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label2.Location = new Point(44, 10);
@@ -226,6 +233,7 @@
             // 
             // popularityAlgorithmPictureBox
             // 
+            popularityAlgorithmPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             popularityAlgorithmPictureBox.Location = new Point(12, 47);
             popularityAlgorithmPictureBox.Name = "popularityAlgorithmPictureBox";
             popularityAlgorithmPictureBox.Size = new Size(352, 239);
@@ -234,6 +242,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label3.Location = new Point(44, 10);
@@ -244,6 +253,7 @@
             // 
             // kMeansAlgorithmPictureBox
             // 
+            kMeansAlgorithmPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             kMeansAlgorithmPictureBox.Location = new Point(8, 47);
             kMeansAlgorithmPictureBox.Name = "kMeansAlgorithmPictureBox";
             kMeansAlgorithmPictureBox.Size = new Size(352, 239);
@@ -256,10 +266,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1132, 647);
             Controls.Add(splitContainer1);
-            MaximumSize = new Size(1148, 686);
             MinimumSize = new Size(1148, 686);
             Name = "Form1";
             Text = "Form1";
+            Resize += Form1_Resize;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();

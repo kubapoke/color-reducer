@@ -5,18 +5,23 @@ namespace ColorReducer
 {
     public partial class Form1 : Form
     {
-        private ImageHolder MainImage, PopularityImage;
-        private Bitmap PublicImage;
+        private ImageHolder MainImageHolder, PopularityImageHolder;
+        private Bitmap MainImage, PopularityImage;
 
         public Form1()
         {
             InitializeComponent();
 
-            MainImage = new ImageHolder(mainPictureBox.Width, mainPictureBox.Height);
-            PopularityImage = new ImageHolder(popularityAlgorithmPictureBox.Width, popularityAlgorithmPictureBox.Height);
+            RemakeImageHolders();
+        }
 
-            mainPictureBox.Image = MainImage.Image.Bitmap;
-            popularityAlgorithmPictureBox.Image = PopularityImage.Image.Bitmap;
+        private void RemakeImageHolders()
+        {
+            MainImageHolder = new ImageHolder(mainPictureBox.Width, mainPictureBox.Height);
+            PopularityImageHolder = new ImageHolder(popularityAlgorithmPictureBox.Width, popularityAlgorithmPictureBox.Height);
+
+            mainPictureBox.Image = MainImageHolder.Image.Bitmap;
+            popularityAlgorithmPictureBox.Image = PopularityImageHolder.Image.Bitmap;
         }
 
         private void colorsAmountTrackBar_Scroll(object sender, EventArgs e)
@@ -36,8 +41,8 @@ namespace ColorReducer
             {
                 string path = openFileDialog.FileName;
 
-                PublicImage = (Bitmap)Image.FromFile(path);
-                MainImage.Draw(PublicImage);
+                MainImage = (Bitmap)Image.FromFile(path);
+                MainImageHolder.Draw(MainImage);
 
                 mainPictureBox.Invalidate();
             }
@@ -47,9 +52,18 @@ namespace ColorReducer
         {
             Reducer reducer = new PopularityReducer(colorsAmountTrackBar.Value);
 
-            PopularityImage.Draw(reducer.Reduce(PublicImage));
+            PopularityImage = reducer.Reduce(MainImage);
+            PopularityImageHolder.Draw(PopularityImage);
 
             popularityAlgorithmPictureBox.Invalidate();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            RemakeImageHolders();
+
+            MainImageHolder.Draw(MainImage);
+            PopularityImageHolder.Draw(PopularityImage);
         }
     }
 }
