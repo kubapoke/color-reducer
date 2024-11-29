@@ -46,4 +46,12 @@ internal class DirectBitmap : IDisposable
         Bitmap.Dispose();
         BitsHandle.Free();
     }
+
+    public void Clear()
+    {
+        using (var g = Graphics.FromImage(Bitmap))
+        {
+            g.Clear(Color.Transparent);
+        }
+    }
 }

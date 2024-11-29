@@ -11,6 +11,7 @@
 
         public void Draw(Bitmap bitmap)
         {
+            Image.Clear();
             double scale = Math.Min((double)Image.Width / (double)bitmap.Width, (double)Image.Height / (double)bitmap.Height);
 
             int scaledWidth = (int)(bitmap.Width * scale);
@@ -18,11 +19,11 @@
             int offsetX = (Image.Width - scaledWidth) / 2;
             int offsetY = (Image.Height - scaledHeight) / 2;
 
-            for (int x = offsetX; x < Image.Width - offsetX; x++)
+            for (int x = offsetX; x < Image.Width - offsetX - 1; x++)
             {
-                for (int y = offsetY; y < Image.Height - offsetY; y++)
+                for (int y = offsetY; y < Image.Height - offsetY - 1; y++)
                 {
-                    Image.SetPixel(x, y, bitmap.GetPixel((int)((x - offsetX) / scale), (int)((y - offsetY) / scale)));
+                    Image.SetPixel(x, y, bitmap.GetPixel((int)Math.Floor((x - offsetX) / scale), (int)Math.Floor((y - offsetY) / scale)));
                 }
             }
         }
