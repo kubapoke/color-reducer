@@ -112,6 +112,7 @@
             clusterImageButton.TabIndex = 3;
             clusterImageButton.Text = "Cluster image to 16 colors";
             clusterImageButton.UseVisualStyleBackColor = true;
+            clusterImageButton.Click += clusterImageButton_Click;
             // 
             // mainPictureBox
             // 

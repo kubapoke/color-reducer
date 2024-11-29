@@ -14,12 +14,17 @@
             _colors = colors.ToList();
         }
 
+        public void AddColor(Color color)
+        {
+            _colors.Add(color);
+        }
+
         public Color GetClosestColor(Color color)
         {
             if (_colors.Count == 0)
                 return Color.Transparent;
 
-            double distance = double.MaxValue;
+            int distance = int.MaxValue;
             int R = color.R;
             int G = color.G;
             int B = color.B;
@@ -40,6 +45,11 @@
             }
 
             return closestColor;
+        }
+
+        public void Clear()
+        {
+            _colors.Clear();
         }
     }
 }
