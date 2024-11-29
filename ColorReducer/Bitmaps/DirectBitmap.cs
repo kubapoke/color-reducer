@@ -22,6 +22,24 @@ internal class DirectBitmap : IDisposable
         Bitmap = new Bitmap(width, height, width * 4, PixelFormat.Format32bppPArgb, BitsHandle.AddrOfPinnedObject());
     }
 
+    public DirectBitmap(Bitmap bitmap)
+    {
+        int width = bitmap.Width, height = bitmap.Height;
+        Width = width;
+        Height = height;
+        Bits = new Int32[width * height];
+        BitsHandle = GCHandle.Alloc(Bits, GCHandleType.Pinned);
+        Bitmap = new Bitmap(width, height, width * 4, PixelFormat.Format32bppPArgb, BitsHandle.AddrOfPinnedObject());
+
+        for (int x = 0; x < width; x++)
+        {
+            for(int y = 0; y < height; y++)
+            {
+                SetPixel(x, y, bitmap.GetPixel(x, y));
+            }
+        }
+    }
+
     public void SetPixel(int x, int y, Color colour)
     {
         int index = x + (y * Width);

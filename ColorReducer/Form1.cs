@@ -45,10 +45,9 @@ namespace ColorReducer
 
         private void clusterImageButton_Click(object sender, EventArgs e)
         {
-            Reducer reducer = new PopularityReducer();
+            Reducer reducer = new PopularityReducer(colorsAmountTrackBar.Value);
 
-            PopularityImage.Draw(PublicImage);
-            reducer.Reduce(PopularityImage.Image, colorsAmountTrackBar.Value);
+            PopularityImage.Draw(reducer.Reduce(PublicImage));
 
             popularityAlgorithmPictureBox.Invalidate();
         }

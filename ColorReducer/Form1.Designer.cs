@@ -127,7 +127,7 @@
             // colorsAmountTrackBar
             // 
             colorsAmountTrackBar.Location = new Point(236, 298);
-            colorsAmountTrackBar.Maximum = 512;
+            colorsAmountTrackBar.Maximum = 256;
             colorsAmountTrackBar.Minimum = 2;
             colorsAmountTrackBar.Name = "colorsAmountTrackBar";
             colorsAmountTrackBar.Size = new Size(328, 45);

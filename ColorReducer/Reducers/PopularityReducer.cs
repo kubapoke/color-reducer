@@ -2,9 +2,9 @@
 {
     internal class PopularityReducer : Reducer
     {
-        public PopularityReducer() : base() { }
+        public PopularityReducer(int amount) : base(amount) { }
 
-        protected override void GeneratePalette(DirectBitmap bitmap, int amount)
+        protected override void GeneratePalette(DirectBitmap bitmap)
         {
             _palette.Clear();
 
@@ -28,7 +28,7 @@
 
             var mostPopularColors = colorCounter
                 .OrderByDescending(x => x.Value)
-                .Take(amount)
+                .Take(_amount)
                 .ToList();
 
             foreach (var color in mostPopularColors)
