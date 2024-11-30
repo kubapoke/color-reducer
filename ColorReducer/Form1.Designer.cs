@@ -388,7 +388,6 @@
             // 
             // clusterImageButton
             // 
-            clusterImageButton.Anchor = AnchorStyles.Bottom;
             clusterImageButton.Location = new Point(134, 310);
             clusterImageButton.Name = "clusterImageButton";
             clusterImageButton.Size = new Size(107, 28);
@@ -411,7 +410,6 @@
             // 
             // loadImageButton
             // 
-            loadImageButton.Anchor = AnchorStyles.Top;
             loadImageButton.Location = new Point(65, 12);
             loadImageButton.Name = "loadImageButton";
             loadImageButton.Size = new Size(101, 28);
@@ -422,7 +420,6 @@
             // 
             // saveImageButton
             // 
-            saveImageButton.Anchor = AnchorStyles.Top;
             saveImageButton.Location = new Point(218, 12);
             saveImageButton.Name = "saveImageButton";
             saveImageButton.Size = new Size(101, 28);

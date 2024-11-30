@@ -102,19 +102,19 @@ namespace ColorReducer
         private void redScaleTrackBar_Scroll(object sender, EventArgs e)
         {
             redScaleLabel.Text = $"{redScaleTrackBar.Value}";
-            totalScaleLabel.Text = $"{redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
+            totalScaleLabel.Text = $"Total: {redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
         }
 
         private void greenScaleTrackBar_Scroll(object sender, EventArgs e)
         {
             greenScaleLabel.Text = $"{greenScaleTrackBar.Value}";
-            totalScaleLabel.Text = $"{redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
+            totalScaleLabel.Text = $"Total: {redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
         }
 
         private void blueScaleTrackBar_Scroll(object sender, EventArgs e)
         {
             blueScaleLabel.Text = $"{blueScaleTrackBar.Value}";
-            totalScaleLabel.Text = $"{redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
+            totalScaleLabel.Text = $"Total: {redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
         }
     }
 }
