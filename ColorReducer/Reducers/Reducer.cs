@@ -5,7 +5,7 @@ namespace ColorReducer.Reducers
     internal abstract class Reducer
     {
         protected int _amount;
-        protected Palette _palette;
+        protected IPalette _palette;
 
         public Reducer(int amount)
         {

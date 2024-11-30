@@ -1,6 +1,8 @@
-﻿namespace ColorReducer.Coloring
+﻿using System.Numerics;
+
+namespace ColorReducer.Coloring
 {
-    internal class Palette
+    internal class Palette : IPalette
     {
         private List<Color> _colors;
 
@@ -19,23 +21,23 @@
             _colors.Add(color);
         }
 
-        public Color GetClosestColor(Color color)
+        public Color GetClosestColor(Vector3 color)
         {
             if (_colors.Count == 0)
                 return Color.Transparent;
 
-            int distance = int.MaxValue;
-            int R = color.R;
-            int G = color.G;
-            int B = color.B;
+            float distance = float.MaxValue;
+            float R = color.X;
+            float G = color.Y;
+            float B = color.Z;
             Color closestColor = _colors[0];
 
             foreach (Color c in _colors)
             {
-                int distR = (R - c.R) * (R - c.R);
-                int distG = (G - c.G) * (G - c.G);
-                int distB = (B - c.B) * (B - c.B);
-                int distSum = distR + distG + distB;
+                float distR = (R - c.R) * (R - c.R);
+                float distG = (G - c.G) * (G - c.G);
+                float distB = (B - c.B) * (B - c.B);
+                float distSum = distR + distG + distB;
 
                 if (distSum < distance)
                 {

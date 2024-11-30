@@ -32,6 +32,17 @@
             splitContainer4 = new SplitContainer();
             label6 = new Label();
             mainPictureBox = new PictureBox();
+            totalScaleLabel = new Label();
+            label10 = new Label();
+            blueScaleLabel = new Label();
+            blueScaleTrackBar = new TrackBar();
+            label9 = new Label();
+            greenScaleLabel = new Label();
+            greenScaleTrackBar = new TrackBar();
+            label11 = new Label();
+            redScaleLabel = new Label();
+            label13 = new Label();
+            redScaleTrackBar = new TrackBar();
             label5 = new Label();
             maxIterationsValueLabel = new Label();
             maxIterationsTrackbar = new TrackBar();
@@ -62,6 +73,9 @@
             splitContainer4.Panel2.SuspendLayout();
             splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mainPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)blueScaleTrackBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)greenScaleTrackBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)redScaleTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)maxIterationsTrackbar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epsilonTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)colorsAmountTrackBar).BeginInit();
@@ -113,6 +127,17 @@
             // 
             // splitContainer4.Panel2
             // 
+            splitContainer4.Panel2.Controls.Add(totalScaleLabel);
+            splitContainer4.Panel2.Controls.Add(label10);
+            splitContainer4.Panel2.Controls.Add(blueScaleLabel);
+            splitContainer4.Panel2.Controls.Add(blueScaleTrackBar);
+            splitContainer4.Panel2.Controls.Add(label9);
+            splitContainer4.Panel2.Controls.Add(greenScaleLabel);
+            splitContainer4.Panel2.Controls.Add(greenScaleTrackBar);
+            splitContainer4.Panel2.Controls.Add(label11);
+            splitContainer4.Panel2.Controls.Add(redScaleLabel);
+            splitContainer4.Panel2.Controls.Add(label13);
+            splitContainer4.Panel2.Controls.Add(redScaleTrackBar);
             splitContainer4.Panel2.Controls.Add(label5);
             splitContainer4.Panel2.Controls.Add(maxIterationsValueLabel);
             splitContainer4.Panel2.Controls.Add(maxIterationsTrackbar);
@@ -150,6 +175,122 @@
             mainPictureBox.Size = new Size(727, 301);
             mainPictureBox.TabIndex = 0;
             mainPictureBox.TabStop = false;
+            // 
+            // totalScaleLabel
+            // 
+            totalScaleLabel.AutoSize = true;
+            totalScaleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            totalScaleLabel.Location = new Point(291, 277);
+            totalScaleLabel.Name = "totalScaleLabel";
+            totalScaleLabel.Size = new Size(54, 15);
+            totalScaleLabel.TabIndex = 24;
+            totalScaleLabel.Text = "Total: 64";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label10.Location = new Point(11, 247);
+            label10.Name = "label10";
+            label10.Size = new Size(75, 15);
+            label10.TabIndex = 23;
+            label10.Text = "B scale cols.:";
+            // 
+            // blueScaleLabel
+            // 
+            blueScaleLabel.AutoSize = true;
+            blueScaleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            blueScaleLabel.Location = new Point(331, 247);
+            blueScaleLabel.Name = "blueScaleLabel";
+            blueScaleLabel.Size = new Size(14, 15);
+            blueScaleLabel.TabIndex = 22;
+            blueScaleLabel.Text = "4";
+            // 
+            // blueScaleTrackBar
+            // 
+            blueScaleTrackBar.Location = new Point(85, 247);
+            blueScaleTrackBar.Maximum = 8;
+            blueScaleTrackBar.Minimum = 2;
+            blueScaleTrackBar.Name = "blueScaleTrackBar";
+            blueScaleTrackBar.Size = new Size(231, 45);
+            blueScaleTrackBar.TabIndex = 21;
+            blueScaleTrackBar.TickFrequency = 14;
+            blueScaleTrackBar.Value = 4;
+            blueScaleTrackBar.Scroll += blueScaleTrackBar_Scroll;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label9.Location = new Point(11, 222);
+            label9.Name = "label9";
+            label9.Size = new Size(76, 15);
+            label9.TabIndex = 20;
+            label9.Text = "G scale cols.:";
+            // 
+            // greenScaleLabel
+            // 
+            greenScaleLabel.AutoSize = true;
+            greenScaleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            greenScaleLabel.Location = new Point(331, 222);
+            greenScaleLabel.Name = "greenScaleLabel";
+            greenScaleLabel.Size = new Size(14, 15);
+            greenScaleLabel.TabIndex = 19;
+            greenScaleLabel.Text = "4";
+            // 
+            // greenScaleTrackBar
+            // 
+            greenScaleTrackBar.Location = new Point(85, 222);
+            greenScaleTrackBar.Maximum = 8;
+            greenScaleTrackBar.Minimum = 2;
+            greenScaleTrackBar.Name = "greenScaleTrackBar";
+            greenScaleTrackBar.Size = new Size(231, 45);
+            greenScaleTrackBar.TabIndex = 18;
+            greenScaleTrackBar.TickFrequency = 14;
+            greenScaleTrackBar.Value = 4;
+            greenScaleTrackBar.Scroll += greenScaleTrackBar_Scroll;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label11.Location = new Point(11, 196);
+            label11.Name = "label11";
+            label11.Size = new Size(75, 15);
+            label11.TabIndex = 17;
+            label11.Text = "R scale cols.:";
+            // 
+            // redScaleLabel
+            // 
+            redScaleLabel.AutoSize = true;
+            redScaleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            redScaleLabel.Location = new Point(331, 196);
+            redScaleLabel.Name = "redScaleLabel";
+            redScaleLabel.Size = new Size(14, 15);
+            redScaleLabel.TabIndex = 16;
+            redScaleLabel.Text = "4";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label13.Location = new Point(11, 178);
+            label13.Name = "label13";
+            label13.Size = new Size(226, 15);
+            label13.TabIndex = 15;
+            label13.Text = "Propagation of uncertainty parameters:";
+            // 
+            // redScaleTrackBar
+            // 
+            redScaleTrackBar.Location = new Point(85, 196);
+            redScaleTrackBar.Maximum = 8;
+            redScaleTrackBar.Minimum = 2;
+            redScaleTrackBar.Name = "redScaleTrackBar";
+            redScaleTrackBar.Size = new Size(231, 45);
+            redScaleTrackBar.TabIndex = 14;
+            redScaleTrackBar.TickFrequency = 14;
+            redScaleTrackBar.Value = 4;
+            redScaleTrackBar.Scroll += redScaleTrackBar_Scroll;
             // 
             // label5
             // 
@@ -233,7 +374,7 @@
             colorAmountLabel.Name = "colorAmountLabel";
             colorAmountLabel.Size = new Size(21, 15);
             colorAmountLabel.TabIndex = 6;
-            colorAmountLabel.Text = "16";
+            colorAmountLabel.Text = "64";
             // 
             // label4
             // 
@@ -265,7 +406,7 @@
             colorsAmountTrackBar.Size = new Size(307, 45);
             colorsAmountTrackBar.TabIndex = 4;
             colorsAmountTrackBar.TickFrequency = 14;
-            colorsAmountTrackBar.Value = 16;
+            colorsAmountTrackBar.Value = 64;
             colorsAmountTrackBar.Scroll += colorsAmountTrackBar_Scroll;
             // 
             // loadImageButton
@@ -411,6 +552,9 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
             splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)mainPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)blueScaleTrackBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)greenScaleTrackBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)redScaleTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)maxIterationsTrackbar).EndInit();
             ((System.ComponentModel.ISupportInitialize)epsilonTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)colorsAmountTrackBar).EndInit();
@@ -458,5 +602,16 @@
         private Label label5;
         private Label maxIterationsValueLabel;
         private TrackBar maxIterationsTrackbar;
+        private Label label9;
+        private Label greenScaleLabel;
+        private TrackBar greenScaleTrackBar;
+        private Label label11;
+        private Label redScaleLabel;
+        private Label label13;
+        private TrackBar redScaleTrackBar;
+        private Label totalScaleLabel;
+        private Label label10;
+        private Label blueScaleLabel;
+        private TrackBar blueScaleTrackBar;
     }
 }
