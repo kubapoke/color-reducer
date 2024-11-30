@@ -6,7 +6,7 @@ namespace ColorReducer.Reducers
     internal class UncertaintyPropagationReducer : Reducer
     {
         private int _rAmount, _gAmount, _bAmount;
-        private readonly float[,] _propagationMatrix = { { 0, 0, 0 }, { 0, 0, 7f / 16f }, { 3f / 16f, 5f / 16f, 1f / 16f } };
+        private readonly float[,] _propagationMatrix = { { 0, 0, 3f / 16f }, { 0, 0, 5f / 16f }, { 0, 7f / 16f, 1f / 16f } };
         private readonly int fX = 1, fY = 1;
 
         public UncertaintyPropagationReducer(int rAmount, int gAmount, int bAmount) : base(0)
@@ -45,8 +45,10 @@ namespace ColorReducer.Reducers
                     for (int i = -fX; i <= fX; i++)
                     {
                         for (int j = -fY; j <= fY; j++)
+                        {
                             if (x + i >= 0 && x + i < width && y + j >= 0 && y + j < height)
                                 colors[x + i, y + j] += error * _propagationMatrix[fX + i, fY + j];
+                        }
                     }
 
                     directBitmap.SetPixel(x, y, color);
