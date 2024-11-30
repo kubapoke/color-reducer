@@ -7,6 +7,7 @@ namespace ColorReducer
     {
         private ImageHolder MainImageHolder, PopularityImageHolder, KMeansImageHolder, PropagationImageHolder;
         private Bitmap MainImage, PopularityImage, KMeansImage, PropagationImage;
+        private string ImagePath;
 
         public Form1()
         {
@@ -37,15 +38,16 @@ namespace ColorReducer
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
+                InitialDirectory = Path.GetFullPath(".\\Images\\"),
                 Filter = "Image files (*.png;*.jpg;*.jpeg;*.bmp)|*.png;*.jpg;*.jpeg;*.bmp",
             };
             openFileDialog.AutoUpgradeEnabled = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string path = openFileDialog.FileName;
+                ImagePath = openFileDialog.FileName;
 
-                MainImage = (Bitmap)Image.FromFile(path);
+                MainImage = (Bitmap)Image.FromFile(ImagePath);
                 MainImageHolder.Draw(MainImage);
 
                 mainPictureBox.Invalidate();
@@ -115,6 +117,39 @@ namespace ColorReducer
         {
             blueScaleLabel.Text = $"{blueScaleTrackBar.Value}";
             totalScaleLabel.Text = $"Total: {redScaleTrackBar.Value * greenScaleTrackBar.Value * blueScaleTrackBar.Value}";
+        }
+
+        private void saveImageButton_Click(object sender, EventArgs e)
+        {
+            if (PopularityImage == null && KMeansImage == null && PropagationImage == null)
+                return;
+
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "Select a folder to save the images.";
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string selectedPath = folderBrowserDialog.SelectedPath;
+                string originalFileName = Path.GetFileNameWithoutExtension(ImagePath);
+
+                if (PopularityImage != null)
+                {
+                    string popularityImagePath = Path.Combine(selectedPath, $"{originalFileName}_Popularity.png");
+                    PopularityImage.Save(popularityImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                }
+
+                if (KMeansImage != null)
+                {
+                    string kMeansImagePath = Path.Combine(selectedPath, $"{originalFileName}_KMeans.png");
+                    KMeansImage.Save(kMeansImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                }
+
+                if (PropagationImage != null)
+                {
+                    string propagationImagePath = Path.Combine(selectedPath, $"{originalFileName}_Propagation.png");
+                    PropagationImage.Save(propagationImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                }
+            }
         }
     }
 }

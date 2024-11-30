@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ColorReducer": {
+      "commandName": "Project",
+      "workingDirectory": "."
+    }
+  }
+}

@@ -214,7 +214,6 @@
             blueScaleTrackBar.Name = "blueScaleTrackBar";
             blueScaleTrackBar.Size = new Size(231, 45);
             blueScaleTrackBar.TabIndex = 21;
-            blueScaleTrackBar.TickFrequency = 14;
             blueScaleTrackBar.Value = 4;
             blueScaleTrackBar.Scroll += blueScaleTrackBar_Scroll;
             // 
@@ -246,7 +245,6 @@
             greenScaleTrackBar.Name = "greenScaleTrackBar";
             greenScaleTrackBar.Size = new Size(231, 45);
             greenScaleTrackBar.TabIndex = 18;
-            greenScaleTrackBar.TickFrequency = 14;
             greenScaleTrackBar.Value = 4;
             greenScaleTrackBar.Scroll += greenScaleTrackBar_Scroll;
             // 
@@ -288,7 +286,6 @@
             redScaleTrackBar.Name = "redScaleTrackBar";
             redScaleTrackBar.Size = new Size(231, 45);
             redScaleTrackBar.TabIndex = 14;
-            redScaleTrackBar.TickFrequency = 14;
             redScaleTrackBar.Value = 4;
             redScaleTrackBar.Scroll += redScaleTrackBar_Scroll;
             // 
@@ -320,7 +317,7 @@
             maxIterationsTrackbar.Name = "maxIterationsTrackbar";
             maxIterationsTrackbar.Size = new Size(231, 45);
             maxIterationsTrackbar.TabIndex = 11;
-            maxIterationsTrackbar.TickFrequency = 14;
+            maxIterationsTrackbar.TickFrequency = 3;
             maxIterationsTrackbar.Value = 10;
             maxIterationsTrackbar.Scroll += maxIterationsTrackbar_Scroll;
             // 
@@ -362,7 +359,7 @@
             epsilonTrackBar.Name = "epsilonTrackBar";
             epsilonTrackBar.Size = new Size(231, 45);
             epsilonTrackBar.TabIndex = 7;
-            epsilonTrackBar.TickFrequency = 14;
+            epsilonTrackBar.TickFrequency = 3;
             epsilonTrackBar.Value = 10;
             epsilonTrackBar.Scroll += epsilonTrackBar_Scroll;
             // 
@@ -399,12 +396,12 @@
             // colorsAmountTrackBar
             // 
             colorsAmountTrackBar.Location = new Point(7, 70);
-            colorsAmountTrackBar.Maximum = 256;
+            colorsAmountTrackBar.Maximum = 512;
             colorsAmountTrackBar.Minimum = 2;
             colorsAmountTrackBar.Name = "colorsAmountTrackBar";
             colorsAmountTrackBar.Size = new Size(307, 45);
             colorsAmountTrackBar.TabIndex = 4;
-            colorsAmountTrackBar.TickFrequency = 14;
+            colorsAmountTrackBar.TickFrequency = 32;
             colorsAmountTrackBar.Value = 64;
             colorsAmountTrackBar.Scroll += colorsAmountTrackBar_Scroll;
             // 
@@ -426,6 +423,7 @@
             saveImageButton.TabIndex = 2;
             saveImageButton.Text = "Save image";
             saveImageButton.UseVisualStyleBackColor = true;
+            saveImageButton.Click += saveImageButton_Click;
             // 
             // splitContainer2
             // 
