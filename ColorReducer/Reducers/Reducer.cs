@@ -18,16 +18,19 @@ namespace ColorReducer.Reducers
             DirectBitmap directBitmap = new DirectBitmap(bitmap);
             GeneratePalette(directBitmap);
 
-            for (int x = 0; x < directBitmap.Width; x++)
-            {
-                for (int y = 0; y < directBitmap.Height; y++)
-                {
-                    var color = directBitmap.GetPixel(x, y);
-                    var closestColor = _palette.GetClosestColor(color);
+            int width = directBitmap.Width;
+            int height = directBitmap.Height;
 
-                    directBitmap.SetPixel(x, y, closestColor);
-                }
-            }
+            Parallel.For(0, width * height, i =>
+            {
+                int x = i % width;
+                int y = i / width;
+
+                var color = directBitmap.GetPixel(x, y);
+                var closestColor = _palette.GetClosestColor(color);
+
+                directBitmap.SetPixel(x, y, closestColor);
+            });
 
             return directBitmap.Bitmap;
         }
