@@ -5,8 +5,8 @@ namespace ColorReducer
 {
     public partial class Form1 : Form
     {
-        private ImageHolder MainImageHolder, PopularityImageHolder;
-        private Bitmap MainImage, PopularityImage;
+        private ImageHolder MainImageHolder, PopularityImageHolder, KMeansImageHolder;
+        private Bitmap MainImage, PopularityImage, KMeansImage;
 
         public Form1()
         {
@@ -19,14 +19,16 @@ namespace ColorReducer
         {
             MainImageHolder = new ImageHolder(mainPictureBox.Width, mainPictureBox.Height);
             PopularityImageHolder = new ImageHolder(popularityAlgorithmPictureBox.Width, popularityAlgorithmPictureBox.Height);
+            KMeansImageHolder = new ImageHolder(kMeansAlgorithmPictureBox.Width, kMeansAlgorithmPictureBox.Height);
 
             mainPictureBox.Image = MainImageHolder.Image.Bitmap;
             popularityAlgorithmPictureBox.Image = PopularityImageHolder.Image.Bitmap;
+            kMeansAlgorithmPictureBox.Image = KMeansImageHolder.Image.Bitmap;
         }
 
         private void colorsAmountTrackBar_Scroll(object sender, EventArgs e)
         {
-            clusterImageButton.Text = $"Cluster image to {colorsAmountTrackBar.Value} colors";
+            colorAmountLabel.Text = $"{colorsAmountTrackBar.Value}";
         }
 
         private void loadImageButton_Click(object sender, EventArgs e)
@@ -50,20 +52,42 @@ namespace ColorReducer
 
         private void clusterImageButton_Click(object sender, EventArgs e)
         {
-            Reducer reducer = new PopularityReducer(colorsAmountTrackBar.Value);
+            if (MainImage == null)
+                return;
 
-            PopularityImage = reducer.Reduce(MainImage);
+            Reducer popularityReducer = new PopularityReducer(colorsAmountTrackBar.Value);
+            Reducer kMeansReducer = new KMeansReducer(colorsAmountTrackBar.Value, epsilonTrackBar.Value, maxIterationsTrackbar.Value);
+
+            PopularityImage = popularityReducer.Reduce(MainImage);
             PopularityImageHolder.Draw(PopularityImage);
 
+            KMeansImage = kMeansReducer.Reduce(MainImage);
+            KMeansImageHolder.Draw(KMeansImage);
+
             popularityAlgorithmPictureBox.Invalidate();
+            kMeansAlgorithmPictureBox.Invalidate();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
             RemakeImageHolders();
 
-            MainImageHolder.Draw(MainImage);
-            PopularityImageHolder.Draw(PopularityImage);
+            if (MainImage != null)
+                MainImageHolder.Draw(MainImage);
+            if (PopularityImage != null)
+                PopularityImageHolder.Draw(PopularityImage);
+            if (KMeansImage != null)
+                KMeansImageHolder.Draw(KMeansImage);
+        }
+
+        private void epsilonTrackBar_Scroll(object sender, EventArgs e)
+        {
+            epsilonValueLabel.Text = $"{epsilonTrackBar.Value}";
+        }
+
+        private void maxIterationsTrackbar_Scroll(object sender, EventArgs e)
+        {
+            maxIterationsValueLabel.Text = $"{maxIterationsTrackbar.Value}";
         }
     }
 }

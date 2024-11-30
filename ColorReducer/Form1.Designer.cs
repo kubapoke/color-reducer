@@ -30,8 +30,18 @@
         {
             splitContainer1 = new SplitContainer();
             splitContainer4 = new SplitContainer();
-            clusterImageButton = new Button();
+            label6 = new Label();
             mainPictureBox = new PictureBox();
+            label5 = new Label();
+            maxIterationsValueLabel = new Label();
+            maxIterationsTrackbar = new TrackBar();
+            label8 = new Label();
+            epsilonValueLabel = new Label();
+            label7 = new Label();
+            epsilonTrackBar = new TrackBar();
+            colorAmountLabel = new Label();
+            label4 = new Label();
+            clusterImageButton = new Button();
             colorsAmountTrackBar = new TrackBar();
             loadImageButton = new Button();
             saveImageButton = new Button();
@@ -49,8 +59,11 @@
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer4).BeginInit();
             splitContainer4.Panel1.SuspendLayout();
+            splitContainer4.Panel2.SuspendLayout();
             splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mainPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)maxIterationsTrackbar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epsilonTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)colorsAmountTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
@@ -95,44 +108,161 @@
             // 
             // splitContainer4.Panel1
             // 
-            splitContainer4.Panel1.Controls.Add(clusterImageButton);
+            splitContainer4.Panel1.Controls.Add(label6);
             splitContainer4.Panel1.Controls.Add(mainPictureBox);
-            splitContainer4.Panel1.Controls.Add(colorsAmountTrackBar);
-            splitContainer4.Panel1.Controls.Add(loadImageButton);
-            splitContainer4.Panel1.Controls.Add(saveImageButton);
+            // 
+            // splitContainer4.Panel2
+            // 
+            splitContainer4.Panel2.Controls.Add(label5);
+            splitContainer4.Panel2.Controls.Add(maxIterationsValueLabel);
+            splitContainer4.Panel2.Controls.Add(maxIterationsTrackbar);
+            splitContainer4.Panel2.Controls.Add(label8);
+            splitContainer4.Panel2.Controls.Add(epsilonValueLabel);
+            splitContainer4.Panel2.Controls.Add(label7);
+            splitContainer4.Panel2.Controls.Add(epsilonTrackBar);
+            splitContainer4.Panel2.Controls.Add(colorAmountLabel);
+            splitContainer4.Panel2.Controls.Add(label4);
+            splitContainer4.Panel2.Controls.Add(clusterImageButton);
+            splitContainer4.Panel2.Controls.Add(colorsAmountTrackBar);
+            splitContainer4.Panel2.Controls.Add(loadImageButton);
+            splitContainer4.Panel2.Controls.Add(saveImageButton);
             splitContainer4.Size = new Size(1132, 345);
             splitContainer4.SplitterDistance = 756;
             splitContainer4.TabIndex = 0;
             // 
-            // clusterImageButton
+            // label6
             // 
-            clusterImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            clusterImageButton.Location = new Point(570, 309);
-            clusterImageButton.Name = "clusterImageButton";
-            clusterImageButton.Size = new Size(169, 28);
-            clusterImageButton.TabIndex = 3;
-            clusterImageButton.Text = "Cluster image to 16 colors";
-            clusterImageButton.UseVisualStyleBackColor = true;
-            clusterImageButton.Click += clusterImageButton_Click;
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.Location = new Point(312, 7);
+            label6.Name = "label6";
+            label6.Size = new Size(124, 21);
+            label6.TabIndex = 3;
+            label6.Text = "Original image";
             // 
             // mainPictureBox
             // 
             mainPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             mainPictureBox.BackColor = SystemColors.Control;
-            mainPictureBox.Location = new Point(12, 12);
+            mainPictureBox.Location = new Point(12, 37);
             mainPictureBox.Name = "mainPictureBox";
-            mainPictureBox.Size = new Size(727, 280);
+            mainPictureBox.Size = new Size(727, 301);
             mainPictureBox.TabIndex = 0;
             mainPictureBox.TabStop = false;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label5.Location = new Point(11, 147);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Max. iters.:";
+            // 
+            // maxIterationsValueLabel
+            // 
+            maxIterationsValueLabel.AutoSize = true;
+            maxIterationsValueLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            maxIterationsValueLabel.Location = new Point(331, 147);
+            maxIterationsValueLabel.Name = "maxIterationsValueLabel";
+            maxIterationsValueLabel.Size = new Size(21, 15);
+            maxIterationsValueLabel.TabIndex = 12;
+            maxIterationsValueLabel.Text = "10";
+            // 
+            // maxIterationsTrackbar
+            // 
+            maxIterationsTrackbar.Location = new Point(85, 147);
+            maxIterationsTrackbar.Maximum = 30;
+            maxIterationsTrackbar.Minimum = 1;
+            maxIterationsTrackbar.Name = "maxIterationsTrackbar";
+            maxIterationsTrackbar.Size = new Size(231, 45);
+            maxIterationsTrackbar.TabIndex = 11;
+            maxIterationsTrackbar.TickFrequency = 14;
+            maxIterationsTrackbar.Value = 10;
+            maxIterationsTrackbar.Scroll += maxIterationsTrackbar_Scroll;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label8.Location = new Point(11, 121);
+            label8.Name = "label8";
+            label8.Size = new Size(48, 15);
+            label8.TabIndex = 10;
+            label8.Text = "Epsilon:";
+            // 
+            // epsilonValueLabel
+            // 
+            epsilonValueLabel.AutoSize = true;
+            epsilonValueLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            epsilonValueLabel.Location = new Point(331, 121);
+            epsilonValueLabel.Name = "epsilonValueLabel";
+            epsilonValueLabel.Size = new Size(21, 15);
+            epsilonValueLabel.TabIndex = 9;
+            epsilonValueLabel.Text = "10";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label7.Location = new Point(11, 103);
+            label7.Name = "label7";
+            label7.Size = new Size(183, 15);
+            label7.TabIndex = 8;
+            label7.Text = "K-means algorithm parameters:";
+            // 
+            // epsilonTrackBar
+            // 
+            epsilonTrackBar.Location = new Point(85, 121);
+            epsilonTrackBar.Maximum = 30;
+            epsilonTrackBar.Minimum = 1;
+            epsilonTrackBar.Name = "epsilonTrackBar";
+            epsilonTrackBar.Size = new Size(231, 45);
+            epsilonTrackBar.TabIndex = 7;
+            epsilonTrackBar.TickFrequency = 14;
+            epsilonTrackBar.Value = 10;
+            epsilonTrackBar.Scroll += epsilonTrackBar_Scroll;
+            // 
+            // colorAmountLabel
+            // 
+            colorAmountLabel.AutoSize = true;
+            colorAmountLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            colorAmountLabel.Location = new Point(329, 70);
+            colorAmountLabel.Name = "colorAmountLabel";
+            colorAmountLabel.Size = new Size(21, 15);
+            colorAmountLabel.TabIndex = 6;
+            colorAmountLabel.Text = "16";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label4.Location = new Point(9, 52);
+            label4.Name = "label4";
+            label4.Size = new Size(321, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Number of colors for popularity and k-means algorithms:";
+            // 
+            // clusterImageButton
+            // 
+            clusterImageButton.Anchor = AnchorStyles.Bottom;
+            clusterImageButton.Location = new Point(134, 310);
+            clusterImageButton.Name = "clusterImageButton";
+            clusterImageButton.Size = new Size(107, 28);
+            clusterImageButton.TabIndex = 3;
+            clusterImageButton.Text = "Cluster image";
+            clusterImageButton.UseVisualStyleBackColor = true;
+            clusterImageButton.Click += clusterImageButton_Click;
+            // 
             // colorsAmountTrackBar
             // 
-            colorsAmountTrackBar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            colorsAmountTrackBar.Location = new Point(236, 298);
+            colorsAmountTrackBar.Location = new Point(7, 70);
             colorsAmountTrackBar.Maximum = 256;
             colorsAmountTrackBar.Minimum = 2;
             colorsAmountTrackBar.Name = "colorsAmountTrackBar";
-            colorsAmountTrackBar.Size = new Size(328, 45);
+            colorsAmountTrackBar.Size = new Size(307, 45);
             colorsAmountTrackBar.TabIndex = 4;
             colorsAmountTrackBar.TickFrequency = 14;
             colorsAmountTrackBar.Value = 16;
@@ -140,8 +270,8 @@
             // 
             // loadImageButton
             // 
-            loadImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            loadImageButton.Location = new Point(12, 309);
+            loadImageButton.Anchor = AnchorStyles.Top;
+            loadImageButton.Location = new Point(65, 12);
             loadImageButton.Name = "loadImageButton";
             loadImageButton.Size = new Size(101, 28);
             loadImageButton.TabIndex = 1;
@@ -151,8 +281,8 @@
             // 
             // saveImageButton
             // 
-            saveImageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            saveImageButton.Location = new Point(129, 309);
+            saveImageButton.Anchor = AnchorStyles.Top;
+            saveImageButton.Location = new Point(218, 12);
             saveImageButton.Name = "saveImageButton";
             saveImageButton.Size = new Size(101, 28);
             saveImageButton.TabIndex = 2;
@@ -184,11 +314,11 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.Location = new Point(12, 10);
+            label1.Location = new Point(22, 10);
             label1.Name = "label1";
-            label1.Size = new Size(339, 21);
+            label1.Size = new Size(333, 21);
             label1.TabIndex = 1;
-            label1.Text = "Reducing using propagation of uncertainty";
+            label1.Text = "Reduced using propagation of uncertainty";
             // 
             // propagationOfUncertaintyPictureBox
             // 
@@ -225,11 +355,11 @@
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label2.Location = new Point(44, 10);
+            label2.Location = new Point(45, 10);
             label2.Name = "label2";
-            label2.Size = new Size(292, 21);
+            label2.Size = new Size(286, 21);
             label2.TabIndex = 2;
-            label2.Text = "Reducing using popularity algorithm";
+            label2.Text = "Reduced using popularity algorithm";
             // 
             // popularityAlgorithmPictureBox
             // 
@@ -245,11 +375,11 @@
             label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label3.Location = new Point(44, 10);
+            label3.Location = new Point(61, 10);
             label3.Name = "label3";
-            label3.Size = new Size(276, 21);
+            label3.Size = new Size(270, 21);
             label3.TabIndex = 3;
-            label3.Text = "Reducing using k-means algorithm";
+            label3.Text = "Reduced using k-means algorithm";
             // 
             // kMeansAlgorithmPictureBox
             // 
@@ -276,9 +406,13 @@
             splitContainer1.ResumeLayout(false);
             splitContainer4.Panel1.ResumeLayout(false);
             splitContainer4.Panel1.PerformLayout();
+            splitContainer4.Panel2.ResumeLayout(false);
+            splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
             splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)mainPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)maxIterationsTrackbar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epsilonTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)colorsAmountTrackBar).EndInit();
             splitContainer2.Panel1.ResumeLayout(false);
             splitContainer2.Panel1.PerformLayout();
@@ -314,5 +448,15 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Label label4;
+        private Label colorAmountLabel;
+        private Label label6;
+        private Label label8;
+        private Label epsilonValueLabel;
+        private Label label7;
+        private TrackBar epsilonTrackBar;
+        private Label label5;
+        private Label maxIterationsValueLabel;
+        private TrackBar maxIterationsTrackbar;
     }
 }

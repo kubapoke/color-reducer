@@ -1,23 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ColorReducer.Coloring;
 
 namespace ColorReducer.Reducers
 {
     internal class KMeansReducer : Reducer
     {
-        protected int _eps;
+        protected int _eps, _maxIterations;
 
-        public KMeansReducer(int amount, int eps) : base(amount)
+        public KMeansReducer(int amount, int eps, int max_iterations) : base(amount)
         {
             _eps = eps;
+            _maxIterations = max_iterations;
         }
 
         protected override void GeneratePalette(DirectBitmap bitmap)
         {
-            throw new NotImplementedException();
+            _palette.Clear();
+
+            CentroidGroup group = new CentroidGroup(_amount, bitmap);
+
+            for (int i = 0; i < _maxIterations; i++)
+            {
+                var maxMove = group.CenterCentroids();
+                if (maxMove <= _eps)
+                    break;
+            }
+
+            _palette = group.GeneratePalette();
         }
     }
 }
