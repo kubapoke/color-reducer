@@ -1,4 +1,6 @@
-﻿namespace ColorReducer.Reducers
+﻿using System.Collections.Concurrent;
+
+namespace ColorReducer.Reducers
 {
     internal class PopularityReducer : Reducer
     {
@@ -8,23 +10,28 @@
         {
             _palette.Clear();
 
-            var colorCounter = new Dictionary<Color, int>();
+            var colorCounter = new ConcurrentDictionary<Color, int>();
 
-            for (int x = 0; x < bitmap.Width; x++)
+            int width = bitmap.Width;
+            int height = bitmap.Height;
+
+            Parallel.For(0, width * height, i =>
             {
-                for (int y = 0; y < bitmap.Height; y++)
+                int x = i % width;
+                int y = i / width;
+
+                var color = bitmap.GetPixel(x, y);
+
+                if (colorCounter.TryGetValue(color, out int count))
                 {
-                    var color = bitmap.GetPixel(x, y);
-                    if (colorCounter.ContainsKey(color))
-                    {
-                        colorCounter[color]++;
-                    }
-                    else
-                    {
-                        colorCounter[color] = 1;
-                    }
+                    colorCounter[color] = count + 1;
                 }
-            }
+                else
+                {
+                    colorCounter[color] = 1;
+                }
+            });
+
 
             var mostPopularColors = colorCounter
                 .OrderByDescending(x => x.Value)
